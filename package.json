@@ -1,0 +1,22 @@
+{
+  "name": "repo",
+  "version": "1.0.0",
+  "description": "Automation Using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/motaz-hashhoush/Automation-Testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/motaz-hashhoush/Automation-Testing/issues"
+  },
+  "homepage": "https://github.com/motaz-hashhoush/Automation-Testing#readme",
+  "dependencies": {
+    "cypress": "^9.6.0"
+  }
+}
