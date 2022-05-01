@@ -25,9 +25,9 @@ describe('Update my skills feature', ()=>{
           cy.xpath('//*[@id="3"]').check()
           cy.get('[test-data="NextStep"]').click();
 
-          let nextButton = [4, 7, 11, 14, 17, 22, 26];
+          let nextButton = [4, 7, 11, 14, 17, 22, 26]; // Number of questions answered
           let numQustion = 9;
-          let button = 2;
+          let buttonNumber = 2;
           let index = 0;
 
         
@@ -38,8 +38,8 @@ describe('Update my skills feature', ()=>{
 
             if( qustion == nextButton[index]){
 
-                cy.xpath(`//*[@id="answerForm"]/fieldset[${button}]/input[2]`).click();
-                button++;
+                cy.xpath(`//*[@id="answerForm"]/fieldset[${buttonNumber}]/input[2]`).click();
+                buttonNumber++;
                 index++;
             } 
           }
@@ -47,8 +47,26 @@ describe('Update my skills feature', ()=>{
        
       })
 
-      it('check the stars')
+      it('check the scor', ()=>{
 
-      
+        
+        cy.xpath('/html/body/div[2]/div[1]/legend[2]/div/div[1]/label/span').should('contain.text', '(0/16)');
+        cy.xpath('/html/body/div[2]/div[1]/legend[3]/div/div[1]/label/span').should('contain.text', '(0/12)');
+        cy.xpath('/html/body/div[2]/div[1]/legend[4]/div/div[1]/label/span').should('contain.text', '(0/16)');
+        cy.xpath('/html/body/div[2]/div[1]/legend[5]/div/div[1]/label/span').should('contain.text', '(0/12)');
+        cy.xpath('/html/body/div[2]/div[1]/legend[6]/div/div[1]/label/span').should('contain.text', '(0/12)');
+        cy.xpath('/html/body/div[2]/div[1]/legend[7]/div/div[1]/label/span').should('contain.text', '(0/20)');
+
+      })
+
+      it('check the starts', ()=>{
+
+        for(let id=2; id<=7; id++) {
+            cy.xpath(`/html/body/div[2]/div[1]/legend[${id}]/div/div[2]`).children('[test-data="EmptyStar"]').should('have.length', 5);
+        }
+        
+      })
+
+
 
 })
