@@ -17,7 +17,8 @@ describe('Sort by user reviews feature', ()=>{
         cy.xpath('//*[@id="collapseThree"]/div/div[3]/label').click();
         cy.xpath('//*[@id="searchFrom"]/div[1]/div[3]/button').click();
 
-        cy.xpath('//*[@id="search-result"]/div[1]/div[1]/h4/a').should("contain.text","Python");
-        cy.xpath('//*[@id="search-result"]/div[2]/div[1]/h4/a').should("contain.text","Python");
+        cy.get('#search-result [test-data*=searchItem]').each((item)=>{
+          cy.wrap(item).should("contain.text","Python") 
+      })    
     })
 })
