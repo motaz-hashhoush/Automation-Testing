@@ -31,6 +31,7 @@ describe('Update my skills feature', ()=>{
           let index = 0;
 
         
+          // answer all qustions in all pages
           for(let qustion = 1; qustion <= 26; qustion++){
 
             cy.xpath(`//*[@id="${numQustion}"]`).click()
@@ -49,7 +50,7 @@ describe('Update my skills feature', ()=>{
 
       it('check the scor', ()=>{
 
-        
+          // check the scor in all skills
         cy.xpath('/html/body/div[2]/div[1]/legend[2]/div/div[1]/label/span').should('contain.text', '(0/16)');
         cy.xpath('/html/body/div[2]/div[1]/legend[3]/div/div[1]/label/span').should('contain.text', '(0/12)');
         cy.xpath('/html/body/div[2]/div[1]/legend[4]/div/div[1]/label/span').should('contain.text', '(0/16)');
@@ -60,6 +61,7 @@ describe('Update my skills feature', ()=>{
       })
 
       it('check the starts', ()=>{
+          // check the starts in all skills
 
         for(let id=2; id<=7; id++) {
             cy.xpath(`/html/body/div[2]/div[1]/legend[${id}]/div/div[2]`).children('[test-data="EmptyStar"]').should('have.length', 5);
